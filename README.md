@@ -6,6 +6,8 @@ Usage
 ---
 Add `addSbtPlugin("com.swoval" %% "sbt-mac-watch-service" % "1.1.0")` to your project/plugins.sbt.  You can tune the plugin with the following settings (default values follow the :=):
 
+For global cross-project use create put the above line in `~/.sbt/1.0/plugins/watch.sbt`
+
 `pollInterval := 75.milliseconds` -- This overrides the internal sbt pollInterval duration. SBT currently polls the WatchService for events at this rate. Reducing the value decreases latency but increases cpu utilization.
 
 `watchLatency := 50.milliseconds` -- Sets the latency parameter which causes the underly apple file system api to buffer events for this duration. Lower values reduces the trigger latency, but, if the values are too small, multiple builds can be triggered for the same event.
